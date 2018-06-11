@@ -1,5 +1,7 @@
 # Processing
 
-This is just a first attempt at creating a Git Repository for Processing Examples.
-I'll update these with more useful code shortly.
+Most of the samples are not particularly interesting yet with the exception of BouncingBalls.
+This is definitely worth checking out.
+THis should run with just a standard install of Processing, no libraries needed.
+
 
