@@ -2,7 +2,7 @@ ArrayList<Ball> balls;
 
 
 void setup() {
-    size( 640, 480 );
+    size( 1024, 768 );
     noStroke(); // No border around the circles
     balls = new ArrayList<Ball>();
 }
