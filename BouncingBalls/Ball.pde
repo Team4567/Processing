@@ -3,7 +3,7 @@ class Ball {
     // Speed is in Pixels/loop
     // Gravity is an acceleration downward
     // Acceleration will be a change in speed per loop
-    // Acceleration units are Pixels/Loop per Loop
+    // Acceleration units are pixels/loop per loop
     public static final float GRAVITY = 0.2;  
     
     // After a bounce some speed is lost
@@ -47,7 +47,7 @@ class Ball {
         }
     }
     
-    boolean onFloor() {
+    boolean isOnFloor() {
         return (this.y == height && abs(this.speed) < 0.2 );
     }
 };
