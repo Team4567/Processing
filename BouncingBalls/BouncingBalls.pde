@@ -15,18 +15,19 @@ void setup() {
     // You might need to make this smaller if you have a small screen.
     size( 1024, 768 );
 
-    // Now if the time to actuall create our list of Ball objects.
-    // This start out empty and we make the "balls" variable point to the new ArrayList.
+    // Now is the time to actually create our list of Ball objects.
+    // Make the "balls" variable point to the new ArrayList.
+    // A new ArrayList starts out empty.
     balls = new ArrayList<Ball>();
 }
 
-// Draw gets called over and over in a loop while the programming is running.
-// Code here usually changes out objects then draws them.
+// "draw" gets called over and over in a loop while the program is running.
+// Code here usually changes the objects then draws them.
 // In this case we'll call "fall" for each of the balls in our ArrayList, then draw them.
 
 void draw() {
     // Redrawing the background erases anything that was on the screen before.
-    // If you are unsure why we need this try commenting it out.
+    // If you are unsure why we need this try commenting it out. (//)
     background(255);
 
     // A "stroke" is the line that makes a shape.
@@ -35,9 +36,8 @@ void draw() {
 
     // "for" loops for each ball in the ArrayList "balls", one at a time.
     // For each loop, the next ball is assigned to "b".
-    // When we start out the ArrayList will be empty.
     for( Ball b : balls ) {
-        // Call "fall" on the ball to changing its height.
+        // Call "fall" on the ball.
         b.fall();
         
         // "fill" is the color inside of a shape, a circle in this case.
@@ -59,7 +59,7 @@ void draw() {
     // Set the fill to black to draw the text
     fill(0);
     
-    // Draw the number of balls in the upper corner of the window.
+    // Draw the number of balls in the upper left corner of the window.
     // This asks "balls", the ArrayList, for its size.
     text( balls.size(), 20, 20 );
 }
@@ -85,8 +85,9 @@ void addBall() {
     // Add a new Ball to the ArrayList
     // Pick a random color
     // Colors are made up of an amount of Red, Green and Blue
-    // Each range from 0 to 255, making for 16 millions possible colors.
-    // "random" just picks a values from 0 to the number given.    
+    // Each range from 0 to 255, making for 16 million possible colors.
+    // "random" just picks a value from 0 to the number given.
+    // The "color" routine returns the color number that can be stored in an "int".
     int c = color( random(256), random(256), random(256) );
     
     // "balls", the ArrayList, has a method to call to add a new Ball to the ArrayList
@@ -97,21 +98,20 @@ void addBall() {
 
 // Routine to remove the Balls that are no longer bouncing
 // This is done by creating a new list with only the Balls that are NOT "onTheFloor"
-ArrayList<Ball> onlyBouncingBalls( ArrayList<Ball> inBalls ) 
+ArrayList<Ball> onlyBouncingBalls( ArrayList<Ball> oldList ) 
 {
     // Create a new empty ArrayList
-    ArrayList<Ball> newBalls = new ArrayList<Ball>();
+    ArrayList<Ball> newList = new ArrayList<Ball>();
  
-    // "inBalls" is the ArrayList that is passed to this routine
     // Loop over all of the Balls in this list
-    for( Ball b : inBalls ) {
+    for( Ball b : oldList ) {
         // Check if the Ball in NOT(!) on the floor
         if( !b.isOnFloor() ) {
             // Add the Ball to the new list
-            newBalls.add( b );
+            newList.add( b );
         }
     }
 
     // Return the new ArrayList
-    return newBalls;
+    return newList;
 }

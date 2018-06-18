@@ -5,6 +5,7 @@ class Ball {
     // Gravity is an acceleration downward
     // Acceleration will be a change in speed per loop
     // Acceleration units are pixels/loop per loop
+    // Interesting thing to try, the gravity on the moon is 1/6th of the earth.
     public static final float GRAVITY = 0.2;  
     
     // After a bounce some speed is lost
