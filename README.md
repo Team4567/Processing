@@ -1,8 +1,8 @@
 
 
-Most of the samples are not particularly interesting yet with the exception of BouncingBalls.
-
-This is definitely worth checking out.
+Most of the samples are not particularly interesting yet with the exception of BouncingBalls and Canon.
+These are definitely worth checking out.
+The code is complicated for beginners but just running them can be fun.
 
 
 It should run with just a standard install of Processing, no libraries needed.
