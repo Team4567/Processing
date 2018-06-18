@@ -1,18 +1,19 @@
+// The Ball class
 
 class Ball {
-    // Speed is in Pixels/loop
+    // Speed is in pixels/loop
     // Gravity is an acceleration downward
     // Acceleration will be a change in speed per loop
     // Acceleration units are pixels/loop per loop
     public static final float GRAVITY = 0.2;  
     
     // After a bounce some speed is lost
-    // The after speed is a percent of the speed before bounce.
+    // The "after" speed is a percentage of the speed before the bounce. 
     public static final float BOUNCE_SPEED = 0.85;
     
-    private int c;
-    private float x, y;
-    private float speed;
+    private int c;         // Color of the ball
+    private float x, y;    // The current X and Y position 
+    private float speed;   // The current speed (changes with each call to "fall"
     
     Ball( int x, int y, int c ) {
         this.x = x;
@@ -36,9 +37,9 @@ class Ball {
         this.y += this.speed;
 
         if( this.y >= height ) {
-            // when y is greater than hight it hit the floor
-            // remember y gets bigger downing down.
-            // Don't let the call go offer the screen.
+            // When y is greater than "height" the ball hit the floor
+            // Remember y gets bigger as the ball heads down.
+            // Don't let the ball go off the screen.
             this.y = height;
             
             // Set the new speed in the opposite direction.
