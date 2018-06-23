@@ -13,7 +13,7 @@ ArrayList<Ball> balls;
 void setup() {
     // Set the screen size to 1024x768
     // You might need to make this smaller if you have a small screen.
-    size( 1024, 768 );
+    size( 640, 480 );
 
     // Now is the time to actually create our list of Ball objects.
     // Make the "balls" variable point to the new ArrayList.
