@@ -18,7 +18,9 @@ void setup() {
     // Now is the time to actually create our list of Ball objects.
     // Make the "balls" variable point to the new ArrayList.
     // A new ArrayList starts out empty.
-      //Does <Ball> mean each time an item is added to the real it is automatically a Ball class?
+      // Does <Ball> mean each time an item is added to the real it is automatically a Ball class?
+      // No, if you attempt to add something that isn't a Ball it will be a syntax error.
+      // I'll add another note below when I add a ball.
     balls = new ArrayList<Ball>();
 }
 
@@ -37,9 +39,23 @@ void draw() {
 
     // "for" loops for each ball in the ArrayList "balls", one at a time.
     // For each loop, the next ball is assigned to "b".
-      // Never understood "for"
-      // for each ball in the array Balls, called b for simplicity, do this?
-    for( Ball b : balls ) {
+    // Never understood "for"
+    // for each ball in the array Balls, called b for simplicity, do this?
+    // This kind of "for" is relatively new to Java, many other languages had it so they added it.
+    // I'll put in the old style code which was easier to understand, but longer, for comparison.
+    // Note that ArrayList items are numbered 0 through size-1, the 0 item being the 0 offset from the beginning.
+    // This confuses everybody at first.  It is a holdover from the VERY early days of programming.
+//  for( Ball b : balls ) {
+
+  // Original "for" loop:
+    for( int i=0; i<balls.size(); i++) {  // declare "i" to count through the ArrayList, initialize to zero 
+                                          // while i is less then the size of the list, perform the code in the loop
+                                          // each time, after the code in the is done, increment i by 1
+        // Get the i'th element of the ArrayList
+        Ball b;
+        b = balls.get(i);
+  // end alternate "for"
+  
         // Call "fall" on the ball.
         b.fall();
         
@@ -82,9 +98,14 @@ void mousePressed() {
 void mouseDragged() {
     // Add a new ball to the ArrayList
       //Not Working? Balls only added when clicked
+      // hum, working for me....  This is a click (hold down) and drag operation, try that.
     addBall();
 }
       //How is addBall used above if it is defined below?
+      // Ah, yes.  I little "Processing" magic going on here.
+      // When you are writting code within a class you can refer to routines later down in the file.
+      // This is because the entire file is compiled into class code before anything is run.
+      // "Processing" takes all of the code in this file and wraps it in a class for you.
 void addBall() {
     // Add a new Ball to the ArrayList
     // Pick a random color
@@ -93,12 +114,24 @@ void addBall() {
     // "random" just picks a value from 0 to the number given.
     // The "color" routine returns the color number that can be stored in an "int".
       //color changes every loop
+      // No, it changes every time we create a new ball.
+      // Once we create a ball it holds these values unless we change them, as we do with x and y.
     int c = color( random(256), random(256), random(256) );
     
     // "balls", the ArrayList, has a method to call to add a new Ball to the ArrayList
     // A new Ball is created to pass to "add".
     // The Ball is created at the current position of the mouse with the random color.
-    balls.add( new Ball( mouseX, mouseY, c ) );
+    //
+    // This command, new Ball( mouseX, mouseY, c ), says to create a new Ball with these arguments.
+    // I got lazy and put this right in as the argument to balls.add( )
+    
+//    balls.add( new Ball( mouseX, mouseY, c ) );
+
+  // Alternate code:
+    Ball newBall = new Ball( mouseX, mouseY, c );
+    balls.add( newBall );
+    
+    // If newBall wasn't a Ball type this code would not even compile.
 }
 
 // Routine to remove the Balls that are no longer bouncing

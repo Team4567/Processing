@@ -11,8 +11,25 @@ class Ball {
     // After a bounce some speed is lost
     // The "after" speed is a percentage of the speed before the bounce.
       // what does "public static final" do?
+      // This is complicated, the short answer is:
+      // "final" means that the value being assigned to BOUNCE_SPEED is not allowed to ever change, it is a constant.
+      // "public" or "private" declare if the variable can be seen outside the class.
+      //    for example if "b" is a Ball, can I use "b.c" to get the color, that would require making "c" public.
+      //    if private it would be a syntax error, no c is available.
+      //    We'll talk about why this is useful.
+      // Most variables in a class are "member" variables.  Every object of this class has its own value of these variables.
+      // Every ball we create will have its own c, x, y and speed.
+      // If every Ball always uses the same value for something that we say the variable is "static".
+      // Once again, this is a holdover from old programming days.
+      // In this case, BOUNCE_SPEED is set to 85%.  THis value is used for every ball object.
+      // If this were changed ALL balls would use the new value.
     public static final float BOUNCE_SPEED = 0.85;
-      // Float? New to me. How come x and y can be defined on the same line? Assuming it is like double 
+    
+      // Float? New to me. How come x and y can be defined on the same line? Assuming it is like double
+      // Yes, float is a smaller version of a double, 4 bytes of storage instead of 8.
+      // It has about 8 significant digits instead of 16.
+      // I'm showing my age when I use float, there is very little reason, today, to use this over double.
+      // You may declare as many variables of a type on one line.  This is identical to having x and y on separate lines.
     private int c;         // Color of the ball
     private float x, y;    // The current X and Y position 
     private float speed;   // The current speed (changes with each call to "fall"
@@ -21,6 +38,14 @@ class Ball {
           //What is "this." ? I saw in the robot codes, 
           //it is something that makes when Ball was created it refrenced these vars, 
           //but now uses its own but under the same name?
+          //
+          // This is a big topic, short answer is:
+          // This routine is called a constructor, the name of the routine matches the name of the class
+          // Its job is to run code each time we create a new object of type Ball.
+          // In this case we create a new ball and set the ball's x value to the x value that is supplied.
+          // same for y and c.
+          // The speed value is always set to 1.0 for all new balls.
+          // "this" is a way to refer to the object that was just created. (more here to talk about)
         this.x = x;
         this.y = y;
         this.c = c;
@@ -38,6 +63,9 @@ class Ball {
     }
     
     void fall() {
+        // Using "this" again.  In this case it is optional, it is implied when I say "speed".
+        // Java only knows this because "fall" is a "member" routine or "method" of the Ball class.
+        // it can only be calls if you have a ball like b.fall().  "this" is a reference to the "b".
         this.speed += GRAVITY;
         this.y += this.speed;
 
