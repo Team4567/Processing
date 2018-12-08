@@ -18,6 +18,7 @@ void setup() {
     // Now is the time to actually create our list of Ball objects.
     // Make the "balls" variable point to the new ArrayList.
     // A new ArrayList starts out empty.
+      //Does <Ball> mean each time an item is added to the real it is automatically a Ball class?
     balls = new ArrayList<Ball>();
 }
 
@@ -36,6 +37,8 @@ void draw() {
 
     // "for" loops for each ball in the ArrayList "balls", one at a time.
     // For each loop, the next ball is assigned to "b".
+      // Never understood "for"
+      // for each ball in the array Balls, called b for simplicity, do this?
     for( Ball b : balls ) {
         // Call "fall" on the ball.
         b.fall();
@@ -78,9 +81,10 @@ void mousePressed() {
 
 void mouseDragged() {
     // Add a new ball to the ArrayList
+      //Not Working? Balls only added when clicked
     addBall();
 }
-
+      //How is addBall used above if it is defined below?
 void addBall() {
     // Add a new Ball to the ArrayList
     // Pick a random color
@@ -88,6 +92,7 @@ void addBall() {
     // Each range from 0 to 255, making for 16 million possible colors.
     // "random" just picks a value from 0 to the number given.
     // The "color" routine returns the color number that can be stored in an "int".
+      //color changes every loop
     int c = color( random(256), random(256), random(256) );
     
     // "balls", the ArrayList, has a method to call to add a new Ball to the ArrayList
@@ -104,6 +109,7 @@ ArrayList<Ball> onlyBouncingBalls( ArrayList<Ball> oldList )
     ArrayList<Ball> newList = new ArrayList<Ball>();
  
     // Loop over all of the Balls in this list
+      // oldList is the balls in the balls array, stated in line60?
     for( Ball b : oldList ) {
         // Check if the Ball in NOT(!) on the floor
         if( !b.isOnFloor() ) {
@@ -115,3 +121,14 @@ ArrayList<Ball> onlyBouncingBalls( ArrayList<Ball> oldList )
     // Return the new ArrayList
     return newList;
 }
+
+/*
+  There is an array called Balls
+  The screen is 1024x768, it has a white background (255,255,255), don't put outline on anything
+  Each time the mouse is clicked, a ball will be added to the array, starting at the x and y of the mouse, with a random color made in the loop the mouse was clicked, 30x30, and created to the screen
+  Balls will upon creation, starting at a speed of 1, increasing by .2 until they hit the floor. The speed will immediately be flipped back up at an upwards speed of 85% from when it hit the floor. 
+  Gravity (.2) will keep on being added back every loop and pulling it back down
+  Eventually, the upward speed from hitting the floor will reach 0 and start to increase down because of gravity.
+  This repeats as long as needed until the ball hits the floor, and after the reversal the speed it should've gone up at is below 0.2. At this point, the ball is filtered out of the Balls list by the onlyBounceingBalls
+  
+*/
