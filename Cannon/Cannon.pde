@@ -10,10 +10,15 @@ float speed = 0.0;
 void setup() {
    size( 750, 600 );
    background(255);
+   
 }
-
+Target t= new Target((int)random((width/2),(width-3)),(int)random((0.25*height),(0.75*height)));
 void draw() {
+  if(t.x<(width/2)){
+  t.newTarget();
+}
    // background(255);
+     //Inside the b, if exists, do this. b is NOT equal to non-existent
    if( b != null ) {
       b.move();
 
@@ -32,7 +37,7 @@ void draw() {
       text( "Impact at X: " + int(b.x) + " Y: " + int(b.y), 10, 50 );
 
       if( b.stopped() ) {
-         if( b.x >= 750 && b.y >= target-50 && b.y <= target+50 ) {
+         if( t.hit() ) {
             textSize(32);
             text( "Hit!", 10, 120 );
          } else {
@@ -58,30 +63,34 @@ void draw() {
       float s = sqrt(mouseX*mouseX + ys*ys);
 
       angle = atan(ys/xs) * 360 / (2*3.14159);
+        // ^So this finds the radian of the mouse position to the bottom right corner, then converts it to degrees
       if( s < 225 ) {
          ySpeed = ys;
          speed = s;
          xSpeed = xs;
       } else {
          speed = 225;
+         // convert back to radians
          ySpeed = sin( angle * (2 * 3.14159) / 360 ) * speed;
+         // Opposite/Hyp of Right triangle angle
          xSpeed = cos( angle * (2 * 3.14159) / 360 ) * speed;
+         // adj/hyp of right triangle angle
+         // I haven't taken physics, I'll probably understand it eventually
       }
 
       stroke(0);
       textSize(16);
-
       line( 0, height, xSpeed, height-ySpeed );
-      text( int(speed) + " ft/sec at " + int(angle) + " deg", mouseX-30, mouseY-40 );
+      text( int(speed) + " ft/sec at " + int(angle) + " deg", mouseX-30, mouseY-80 );
    }
 
    // Always draw target and dimensions
    fill(0);
    textSize(16);
    stroke(255, 0, 0);
-   line( width-3, height - target-50, width-3, height - target+50 );
-   text( int(target-50) + " ft", width-55, height - (target-55) );
-   text( int(target+50) + " ft", width-55, height - (target+55) );
+   line( t.x, t.high, t.x, t.low );
+   text( t.high + " ft" + t.x, t.x-55, t.high-5 );
+   text( t.low + " ft", t.x-55, t.low+5 );
    text( int(width) + " ft", width/2, height-10 );
 }
 
@@ -89,8 +98,9 @@ void draw() {
 void mousePressed() {
    if( b != null && b.stopped() ) {
       background(255);
-      if( b.x >= 750 && b.y >= target-50 && b.y <= target+50 ) {
-         target = (int)random( 100, height-100 );
+      if( t.hit() ) {
+        //that (int) makes sure random only produces integers? 
+        t.newTarget();
       }
       b = null;
    }

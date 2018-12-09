@@ -20,7 +20,7 @@ class Ball {
    int c;
    float x, y;
    float xSpeed, ySpeed;
-
+   float currentY;
    Ball( float x, float y, float xSpeed, float ySpeed, int c ) {
       this.x = x;
       this.y = y;
@@ -28,7 +28,7 @@ class Ball {
       this.ySpeed = ySpeed;
       this.c = c;
    }
-   
+     //Every ball will take the current x and y from its creation and change it.
 
    // For now we use TICK_LENGTH amount of time elapsed on each call to move.
    // It would be better to use the clock to see how long it actually was since last move.
@@ -57,18 +57,26 @@ class Ball {
       // For now, it simply stops at that position.
       // We also limit the shooting range of the ball to 750 feet.
       // It stops in place if x reaches 750.
-
-      if( y <= 0.0 ) {
+// Anti hit the ground or wall
+      if( t.hit()){
+        
+        xSpeed = 0.0;
+        ySpeed = 0.0;
+      } else if( y <= 0.0 ) {
          y = 0.0;
          xSpeed = 0.0;
          ySpeed = 0.0;
-      } else if( x >= 750 ) {
-         x = 750;
+      } else if( x >= width ) {
+         
+         x = width;
          xSpeed = 0.0;
          ySpeed = 0.0;
       } 
    }
-
+  float currentY(){
+  return height-y;
+  }
+  
    boolean stopped() {
       return ( xSpeed == 0.0 && ySpeed == 0.0 );
    }   
