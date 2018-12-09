@@ -46,6 +46,7 @@ class Ball {
           // same for y and c.
           // The speed value is always set to 1.0 for all new balls.
           // "this" is a way to refer to the object that was just created. (more here to talk about)
+            // I'm going to search codeacademy for the constructor unit. I remember learning it, maybe this. is in there somewhere
         this.x = x;
         this.y = y;
         this.c = c;

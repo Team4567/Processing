@@ -48,9 +48,15 @@ void draw() {
 //  for( Ball b : balls ) {
 
   // Original "for" loop:
+    /*
+    Every time mouse is clicked or moved while held down, a "ball" is added to the array with its x and y confirmed.
+    When the code realizes a new ball is the array, aka when the i of the for statement is less than the size, 
+    the for loop will draw the ball with a random color and start its falling. By doing the code again, it equalizes i and the size.
+    */
     for( int i=0; i<balls.size(); i++) {  // declare "i" to count through the ArrayList, initialize to zero 
                                           // while i is less then the size of the list, perform the code in the loop
                                           // each time, after the code in the is done, increment i by 1
+                                            // After watching a khanacademy on for, the old style like this came back to memory.
         // Get the i'th element of the ArrayList
         Ball b;
         b = balls.get(i);
@@ -106,6 +112,7 @@ void mouseDragged() {
       // When you are writting code within a class you can refer to routines later down in the file.
       // This is because the entire file is compiled into class code before anything is run.
       // "Processing" takes all of the code in this file and wraps it in a class for you.
+
 void addBall() {
     // Add a new Ball to the ArrayList
     // Pick a random color
@@ -164,4 +171,5 @@ ArrayList<Ball> onlyBouncingBalls( ArrayList<Ball> oldList )
   Eventually, the upward speed from hitting the floor will reach 0 and start to increase down because of gravity.
   This repeats as long as needed until the ball hits the floor, and after the reversal the speed it should've gone up at is below 0.2. At this point, the ball is filtered out of the Balls list by the onlyBounceingBalls
   
+ 
 */
