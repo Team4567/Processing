@@ -58,7 +58,7 @@ class Ball {
       // We also limit the shooting range of the ball to 750 feet.
       // It stops in place if x reaches 750.
 // Anti hit the ground or wall
-      if( t.hit()){
+      if( t.hit(b)){
         
         xSpeed = 0.0;
         ySpeed = 0.0;

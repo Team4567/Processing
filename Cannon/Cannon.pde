@@ -15,7 +15,7 @@ void setup() {
 Target t= new Target((int)random((width/2),(width-3)),(int)random((0.25*height),(0.75*height)));
 void draw() {
   if(t.x<(width/2)){
-  t.newTarget();
+  t= new Target((int)random((width/2),(width-3)),(int)random((0.25*height),(0.75*height)));
 }
    // background(255);
      //Inside the b, if exists, do this. b is NOT equal to non-existent
@@ -37,7 +37,7 @@ void draw() {
       text( "Impact at X: " + int(b.x) + " Y: " + int(b.y), 10, 50 );
 
       if( b.stopped() ) {
-         if( t.hit() ) {
+         if( t.hit(b) ) {
             textSize(32);
             text( "Hit!", 10, 120 );
          } else {
@@ -98,9 +98,9 @@ void draw() {
 void mousePressed() {
    if( b != null && b.stopped() ) {
       background(255);
-      if( t.hit() ) {
+      if( t.hit(b) ) {
         //that (int) makes sure random only produces integers? 
-        t.newTarget();
+        t= new Target((int)random((width/2),(width-3)),(int)random((0.25*height),(0.75*height)));
       }
       b = null;
    }
