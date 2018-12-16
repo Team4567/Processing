@@ -1,3 +1,5 @@
+New!!! - Added more examples.
+Start with "StartHere" then move on to Examples2 - 5
  
 
 Most of the samples are not particularly interesting yet with the exception of BouncingBalls and Canon.
