@@ -14,6 +14,7 @@
 // This ArrayList is declared to hold Ball objects
 // This syntax is quite verbose, I don't like this part of Java but there it is.
 // The actual variable we are declaring is "balls".
+// There is an Arraylist of Ball classes named balls. If anything is added that is not a Ball class, the code will fail, indicated by the <Ball>
 ArrayList<Ball> balls = new ArrayList<Ball>();
 
 
@@ -62,8 +63,10 @@ void draw() {
     // calling balls.size() returns 4, the size of the ArrayList (we put 4 balls in the List)
     // The final part, i++, is shorthand for i=i+1, or add 1 to i
     // This loop will run 4 times, when i is 0, then i is 1, then i is 2...
+    // REMEMBER CODE/ARRAYS START ON 0, NOT 1.
     // When i reaches 4 then it stops because i won't be less than 4, the size of the List.
-    
+    // for (new variable; is this true about the variable?; do this each time to the variable each time its true, and run this in brackets){
+    //}
     for( int i=0; i<balls.size(); i++ ) {
         Ball b = balls.get(i);
         b.move();

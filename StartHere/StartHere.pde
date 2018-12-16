@@ -1,7 +1,18 @@
 // StartHere - First Processing sketch
-//
+
+//Welcome to code! Some of you may be familiarized with this, but lets all get a refresh on java.
+//All of the words in gray are comments. Comment lines are those that start with // or are between a /* and */
+//In here we'll be showing the basics of java. Variables, drawing using functions, and having variables change through loops.
 
 // Lets define a variable, initial value of 1
+// Variables can be all types, int means it can only be an integer, 1, 2, 3, -1, -4, NOT -4.4
+// For Decimal numbers we'll use double, or sometimes float instead of int
+// Try to use a decimal when you write int, the code will fail
+// Only exception is random, but you'll learn that later.
+// If you need a variable to hold text, use string
+// double x=4.4;
+// float z=4.4;
+// string h= "Hello World!";
 int y = 0;
 
 // Setup is called once.
@@ -44,7 +55,8 @@ void draw() {
     // Draw an ellipse (circle) at x=100, y=50, 
     // that is 30 pixels tall and 30 pixels wide (equal height and width make a circle)
     // play with different values
-    ellipse( 100, 50, 30, 30 );
+    // ellipse "formula"- ellipse(x,y,width,height);
+    ellipse( 100, 50, 40, 30 );
     
     // Use the 'y' variable above to remember a value and change it
     // We can use it to draw the circle:
@@ -54,6 +66,10 @@ void draw() {
     // This is an "Assignment" operation, don't confuse this for an equation.
     // the right side is evaluated first, the current value of y plus 1, then set y to that result.
     y = y + 1;
+    
+    // You see how it looks really weird? That's because of the way background is working.
+    // Since it is only in setup, it is drawn once, then the first circle is drawn, then the one with y+1 is drawn on top, and the next on top of those 2, etc.
+    // To make only 1 circle visible at a time, uncomment line 47. This will redraw the background every loop, so the old circle is covered by the background every loop
 }
 
 // other things to play with:

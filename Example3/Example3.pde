@@ -9,6 +9,8 @@
 
 // Declare the 4 ball objects.
 // Initialize each with a new Ball.
+// What these say is there is Ball, so it has everything in the ball class file.
+// It has the name of whatever is after the class name. Aka b1, b2, b3.
 Ball b1 = new Ball();
 Ball b2 = new Ball();
 Ball b3 = new Ball();
@@ -19,7 +21,8 @@ void setup() {
 
     // Initializing the ball objects only needs to be done once.
     // We put code that only runs once in the setup routine.
-
+// As you see in the ball file, each Ball has an x, y, speed, and c. We'll tell each ball what its values are here.
+// These can be read as b1's x. b2's y. etc.
     // Initialize the b1 object
     b1.x = 100;
     b1.y = 20;

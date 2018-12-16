@@ -7,6 +7,7 @@
 // We'll tackle that problem in the next examples.
 
 // Let's declare an x and y variable for each ball
+// We use int here because we can't and won't have decimal pixel numbers. They don't exist.
 int x1 = 100;
 int y1 = 20;
 int x2 = 150;
@@ -48,7 +49,19 @@ void draw() {
     // 
     // if so we'll set the ball to the endge and negate the speed.
     // this will make the ball travel in the opposite direction.
-    
+    /*
+    if statements!
+    if statements are used a lot. Like, a lot a lot.
+    The way they will look is 
+    if (condition){
+      action
+    }
+    for example,
+    if(x=1){
+      ellipse(200,200,10,10);
+    }
+    In here, the if will check if what is inside the parentheses is true or false. If x is 1, it will be true and the ellipse will be drawn. If it is anything else, nothing will happen.
+    */
     if ( y1 > 599 ) {
         y1 = 599;
         speed1 = -speed1;  // set speed1 to the negative of the current value

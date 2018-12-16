@@ -2,7 +2,9 @@
 //
 // This example is much better than the others.
 // We still can't handle any number of balls but at least the code is much smaller
-
+// You saw how we had to write a line of code for each x, y, speed, and c for each ball. Now, it can go in the parentheses when the ball is defined!
+// Also, each group of actions we did, such as the moving (b1.y = b1.y + b1.speed) and giving the color and drawing, into 1 simple line!
+// This will all be explained in the ball file.
 // Declare the 4 ball objects.
 // Initialize each with a new Ball.
 Ball b1 = new Ball(100, 20, 1, color(255, 0, 0) );
