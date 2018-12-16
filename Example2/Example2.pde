@@ -61,6 +61,7 @@ void draw() {
       ellipse(200,200,10,10);
     }
     In here, the if will check if what is inside the parentheses is true or false. If x is 1, it will be true and the ellipse will be drawn. If it is anything else, nothing will happen.
+    Checks inside if () will not need ;
     */
     if ( y1 > 599 ) {
         y1 = 599;

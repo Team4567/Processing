@@ -3,6 +3,8 @@
 //Welcome to code! Some of you may be familiarized with this, but lets all get a refresh on java.
 //All of the words in gray are comments. Comment lines are those that start with // or are between a /* and */
 //In here we'll be showing the basics of java. Variables, drawing using functions, and having variables change through loops.
+// Note how (almost) everything ends with a ;
+// The exections to this is voids/functions, most commonly seen in classes (get to later), and functions inside other functions
 
 // Lets define a variable, initial value of 1
 // Variables can be all types, int means it can only be an integer, 1, 2, 3, -1, -4, NOT -4.4
@@ -39,7 +41,7 @@ void setup() {
     // Play around with different values.
     background(255, 255, 255);
 }
-
+// Note, no ; line 43
 
 // "draw" gets called over and over in a loop while the program is running.
 // Depending on the code, draw can be called as many as 50 times each second.
@@ -56,7 +58,7 @@ void draw() {
     // that is 30 pixels tall and 30 pixels wide (equal height and width make a circle)
     // play with different values
     // ellipse "formula"- ellipse(x,y,width,height);
-    ellipse( 100, 50, 40, 30 );
+    ellipse( 100, 50, 30, 30 );
     
     // Use the 'y' variable above to remember a value and change it
     // We can use it to draw the circle:
@@ -71,7 +73,7 @@ void draw() {
     // Since it is only in setup, it is drawn once, then the first circle is drawn, then the one with y+1 is drawn on top, and the next on top of those 2, etc.
     // To make only 1 circle visible at a time, uncomment line 47. This will redraw the background every loop, so the old circle is covered by the background every loop
 }
-
+// Note, no ; line 76
 // other things to play with:
 // line( x1, y1, x2, y2 ); - draws a line from point x1,y1 to x2,y2
 // rect( x1, y1, x2, y2 ); - draws a rectangle using  point x1,y1 and x2,y2 as opposite corners

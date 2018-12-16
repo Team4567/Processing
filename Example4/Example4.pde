@@ -11,6 +11,8 @@ Ball b1 = new Ball(100, 20, 1, color(255, 0, 0) );
 Ball b2 = new Ball(150, 40, 2, color(0, 255, 0) );
 Ball b3 = new Ball(200, 60, 3, color(0, 0, 255) );
 Ball b4 = new Ball(250, 80, 4, color(255, 255, 0) );
+// Note how color(R,G,B) Doesn't need a ;
+// If it was there the code wouldn't run.
 
 void setup() {
     size( 800, 600 );

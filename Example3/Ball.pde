@@ -9,4 +9,4 @@ class Ball {
     public int y;
     public int speed;
     public int c;  // can't use the word "color" because that is a command.
-};
+}

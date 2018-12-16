@@ -67,6 +67,8 @@ void draw() {
     // When i reaches 4 then it stops because i won't be less than 4, the size of the List.
     // for (new variable; is this true about the variable?; do this each time to the variable each time its true, and run this in brackets){
     //}
+    // for statements can have ; in their (), they are not like if. 
+    // They are used to separate the 3 parts of for (see above comments)
     for( int i=0; i<balls.size(); i++ ) {
         Ball b = balls.get(i);
         b.move();
