@@ -57,11 +57,15 @@ void draw() {
       action
     }
     for example,
-    if(x=1){
+    if( x == 1 ) {  // Note double equals, this means check for equals
+                    // Single equals means to assign a value to the left side.
       ellipse(200,200,10,10);
     }
-    In here, the if will check if what is inside the parentheses is true or false. If x is 1, it will be true and the ellipse will be drawn. If it is anything else, nothing will happen.
+    In here, the if will check if what is inside the parentheses is true or false. 
+    If x is 1, it will be true and the ellipse will be drawn. If it is anything else, nothing will happen.
     Checks inside if () will not need ;
+    
+    The comparisons include:  ==, <, >, <=, >=, != (not equals)
     */
     if ( y1 > 599 ) {
         y1 = 599;
