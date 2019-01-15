@@ -1,3 +1,9 @@
+// For best results when running both NetTables and NetTablesServer, run on commandline:
+// processing-java --sketch=<full path to sketch folder> --force --run
+// I changed to the repo directory and ran: 
+// processing-java --sketch=%cd%/NetTablesServer --force --run
+// processing-java --sketch=%cd%/NetTables --force --run
+// You can click in either window to set a new x and y value.
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
@@ -15,6 +21,8 @@ void setup() {
     table = inst.getTable("datatable");
     xEntry = table.getEntry("x");
     yEntry = table.getEntry("y");
+    
+    // Runs a server on the "localhost"
     inst.startServer();
 }
 
